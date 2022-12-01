@@ -1,0 +1,11 @@
+1. install typeScript
+   npm install -g typescript
+
+2. run
+   tsc doc.ts
+
+3. config TS
+   tsc --init
+
+4. run
+   tsc -w
