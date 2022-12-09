@@ -73,4 +73,10 @@ function searchProduct02(search: string) {
 
 const product02 = searchProduct02('Dell');
 
-if (product02 instanceof Laptop) console.log(product02.price);
+// if (product02 instanceof Laptop) console.log(product02.price);
+
+// exercise
+const link = document.getElementById('origamid');
+
+if (link instanceof HTMLAnchorElement)
+   link.href = link.href.replace('http://', 'https://');
