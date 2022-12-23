@@ -28,6 +28,14 @@ function isInfoCourse(value) {
     }
 }
 function handleProduct(data) {
-    if (isInfoCourse(data))
-        console.log(data);
+    // if (isInfoCourse(data)) console.log(data);
+    if (Array.isArray(data)) {
+        data.filter(isInfoCourse).forEach((d) => {
+            document.body.innerHTML += `
+            <h2>${d.nome}</h2>
+            <p>${d.aulas}</p>
+            <p>${d.horas}</p>
+         `;
+        });
+    }
 }
