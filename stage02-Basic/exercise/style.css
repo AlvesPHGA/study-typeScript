@@ -1,0 +1,40 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h1,
+h2 {
+  font-weight: 800;
+}
+
+main {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.annotation__inference {
+  padding: 1.25rem 0;
+}
+.annotation__inference input {
+  padding: 0.5rem;
+  font-size: 1.125rem;
+  color: blue;
+}
+.annotation__inference hr {
+  margin: 1.25rem 0;
+}
+.annotation__inference .annotation__inference__result {
+  display: block;
+  font-size: 1.125rem;
+}/*# sourceMappingURL=style.css.map */
