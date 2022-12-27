@@ -24,14 +24,14 @@ main {
    margin: 0 auto;
 }
 
+input {
+   padding: 0.5rem;
+   font-size: 1.125rem;
+   color: blue;
+}
+
 .annotation__inference {
    padding: 1.25rem 0;
-
-   input {
-      padding: 0.5rem;
-      font-size: 1.125rem;
-      color: blue;
-   }
 
    hr {
       margin: 1.25rem 0;
@@ -40,5 +40,13 @@ main {
    .annotation__inference__result {
       display: block;
       font-size: 1.125rem;
+   }
+}
+
+.union__types {
+   padding: 1.25rem 0;
+
+   hr {
+      margin: 1.25rem 0;
    }
 }
