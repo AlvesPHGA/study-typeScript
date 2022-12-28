@@ -91,3 +91,35 @@ function handleProduct02(data: DataProduct) {
       <p>${data.preco}</p>
    `;
 }
+
+interface DataCoursesArrays {
+   nome: string;
+   horas: number;
+   aulas: number;
+   gratuito: boolean;
+   tags: string[];
+   idAulas: number[];
+   nivel: 'iniciante' | 'acancado';
+}
+
+async function fetchCoursesArray() {
+   const res = await fetch('https://api.origamid.dev/json/cursos.json');
+   const data = await res.json();
+
+   coursesArrays(data);
+}
+
+fetchCoursesArray();
+
+function coursesArrays(data: DataCoursesArrays[]) {
+   const arrayContents = document.querySelector('.arrays');
+   if (arrayContents) {
+      data.forEach((dt) => {
+         arrayContents.innerHTML += `
+            <h3>${dt.nome}</h3>
+            <p>${dt.horas} horas</p>
+            <p>${dt.aulas} aulas</p>
+         `;
+      });
+   }
+}

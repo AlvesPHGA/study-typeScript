@@ -57,3 +57,21 @@ function handleProduct02(data) {
       <p>${data.preco}</p>
    `;
 }
+async function fetchCoursesArray() {
+    const res = await fetch('https://api.origamid.dev/json/cursos.json');
+    const data = await res.json();
+    coursesArrays(data);
+}
+fetchCoursesArray();
+function coursesArrays(data) {
+    const arrayContents = document.querySelector('.arrays');
+    if (arrayContents) {
+        data.forEach((dt) => {
+            arrayContents.innerHTML += `
+            <h3>${dt.nome}</h3>
+            <p>${dt.horas} horas</p>
+            <p>${dt.aulas} aulas</p>
+         `;
+        });
+    }
+}
