@@ -30,23 +30,19 @@ input {
    color: blue;
 }
 
-.annotation__inference {
+.annotation__inference,
+.union__types,
+.types__interfaces {
    padding: 1.25rem 0;
 
    hr {
       margin: 1.25rem 0;
-   }
-
-   .annotation__inference__result {
-      display: block;
-      font-size: 1.125rem;
    }
 }
 
-.union__types {
-   padding: 1.25rem 0;
-
-   hr {
-      margin: 1.25rem 0;
+.annotation__inference {
+   .annotation__inference__result {
+      display: block;
+      font-size: 1.125rem;
    }
 }

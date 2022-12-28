@@ -20,7 +20,7 @@ function resToClient() {
 inputUser?.addEventListener('keyup', resToClient);
 // Union Types
 const formUnionTypes = document.querySelector('#formUnionTypes');
-function isNumber(value) {
+function isNumberUT(value) {
     if (typeof value === 'number') {
         return value;
     }
@@ -30,7 +30,7 @@ function isNumber(value) {
 }
 function valueUnionTypes(value) {
     const result = document.querySelector('.union__types__result');
-    const resultClient = isNumber(value);
+    const resultClient = isNumberUT(value);
     console.log(resultClient);
 }
 function validUnionTypes() {
@@ -42,3 +42,18 @@ formUnionTypes?.addEventListener('submit', (e) => {
     e.preventDefault();
     validUnionTypes();
 });
+async function fetchProduct02() {
+    const res = await fetch('https://api.origamid.dev/json/notebook.json');
+    const data = await res.json();
+    handleProduct02(data);
+}
+fetchProduct02();
+function handleProduct02(data) {
+    const typesInterfaceContents = document.querySelector('.types__interface__contents');
+    if (typesInterfaceContents)
+        typesInterfaceContents.innerHTML += `
+      <h3>${data.nome}</h3>
+      <p>${data.descricao}</p>
+      <p>${data.preco}</p>
+   `;
+}

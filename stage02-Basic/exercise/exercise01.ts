@@ -28,7 +28,7 @@ inputUser?.addEventListener('keyup', resToClient);
 // Union Types
 const formUnionTypes = document.querySelector('#formUnionTypes');
 
-function isNumber(value: number | string) {
+function isNumberUT(value: number | string) {
    if (typeof value === 'number') {
       return value;
    } else if (typeof value === 'string') {
@@ -38,7 +38,7 @@ function isNumber(value: number | string) {
 
 function valueUnionTypes(value: string) {
    const result = document.querySelector('.union__types__result');
-   const resultClient = isNumber(value);
+   const resultClient = isNumberUT(value);
    console.log(resultClient);
 }
 
@@ -52,3 +52,42 @@ formUnionTypes?.addEventListener('submit', (e) => {
    e.preventDefault();
    validUnionTypes();
 });
+
+// Types & Interfaces
+interface Company {
+   nome: string;
+   fundacao: number;
+   pais: string;
+}
+interface DataProduct {
+   nome: string;
+   preco: number;
+   descricao: string;
+   garantia: string;
+   seguroAcidentes: boolean;
+
+   empresaFabricante: Company;
+   empresaMontadora: Company;
+}
+
+async function fetchProduct02() {
+   const res = await fetch('https://api.origamid.dev/json/notebook.json');
+   const data = await res.json();
+
+   handleProduct02(data);
+}
+
+fetchProduct02();
+
+function handleProduct02(data: DataProduct) {
+   const typesInterfaceContents = document.querySelector(
+      '.types__interface__contents',
+   );
+
+   if (typesInterfaceContents)
+      typesInterfaceContents.innerHTML += `
+      <h3>${data.nome}</h3>
+      <p>${data.descricao}</p>
+      <p>${data.preco}</p>
+   `;
+}
