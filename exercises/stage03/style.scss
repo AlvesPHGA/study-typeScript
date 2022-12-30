@@ -51,3 +51,42 @@ hr {
       }
    }
 }
+
+.eventsCallbacks {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   position: relative;
+
+   .eventsCallbacks__buttonMenu {
+      width: fit-content;
+      height: fit-content;
+      padding: 0.5rem 1.25rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 1.5rem;
+      background: transparent;
+      border-radius: 0.25rem;
+      cursor: pointer;
+   }
+
+   .eventsCallbacks__nav {
+      position: absolute;
+      right: 50%;
+      top: 50%;
+      transform: translate3d(50%, -300%, 0);
+      opacity: 0;
+
+      a {
+         color: blue;
+         text-transform: uppercase;
+         font-size: 1.5rem;
+         margin-right: 1rem;
+      }
+
+      &.eventsCallbacks--active__menu {
+         transform: translate3d(50%, -50%, 0);
+         opacity: 1;
+      }
+   }
+}
