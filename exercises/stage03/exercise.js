@@ -42,3 +42,19 @@ function handleEvent(event) {
     }
 }
 buttonEventsCallbacks?.addEventListener('pointerdown', handleEvent);
+// Generics
+const contentGenerics = document.querySelector('.generics__contents');
+async function fetchProduct_G(url) {
+    const res = await fetch(url);
+    return await res.json();
+}
+async function handleGenerics() {
+    const data = await fetchProduct_G('https://api.origamid.dev/json/notebook.json');
+    if (contentGenerics)
+        contentGenerics.innerHTML = `
+      <p>${data.nome}</p>
+      <p>${data.preco}</p>
+      <p>${data.descricao}</p>
+   `;
+}
+handleGenerics();
