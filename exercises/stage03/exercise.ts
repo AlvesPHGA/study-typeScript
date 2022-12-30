@@ -81,3 +81,31 @@ async function handleGenerics() {
 }
 
 handleGenerics();
+
+// functions
+const contentFunction = document.querySelector('.functions__content');
+
+function template<T>(result: T) {
+   if (contentFunction)
+      contentFunction.innerHTML += `
+      ${result}
+   `;
+}
+
+function handleNumberString_F(data: number): number;
+function handleNumberString_F(data: string): string;
+function handleNumberString_F(data: number | string): number | string {
+   let result;
+   if (typeof data === 'number') {
+      result = Math.ceil(data);
+      template(result);
+   } else {
+      result = Math.ceil(Number(data));
+      template(result);
+   }
+
+   return result;
+}
+
+handleNumberString_F('12.5');
+handleNumberString_F(123.9);
