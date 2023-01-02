@@ -86,4 +86,21 @@ hr {
 .eventsCallbacks .eventsCallbacks__nav.eventsCallbacks--active__menu {
   transform: translate3d(50%, -50%, 0);
   opacity: 1;
+}
+
+.typeGuard .content__name {
+  text-decoration: underline;
+  margin: 1rem 0 0.5rem;
+}
+.typeGuard .content__name:first-child {
+  margin-top: 0;
+}
+.typeGuard .content .listInfo {
+  list-style: none;
+}
+.typeGuard .content .listInfo__item {
+  font-size: 1.125rem;
+}
+.typeGuard .content .listInfo__item .listInfo__label {
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */

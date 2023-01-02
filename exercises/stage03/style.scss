@@ -90,3 +90,26 @@ hr {
       }
    }
 }
+
+.typeGuard {
+   .content {
+      &__name {
+         text-decoration: underline;
+         margin: 1rem 0 0.5rem;
+
+         &:first-child {
+            margin-top: 0;
+         }
+      }
+
+      .listInfo {
+         list-style: none;
+         &__item {
+            font-size: 1.125rem;
+            .listInfo__label {
+               font-weight: bold;
+            }
+         }
+      }
+   }
+}
