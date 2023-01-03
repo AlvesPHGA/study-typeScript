@@ -103,4 +103,23 @@ hr {
 }
 .typeGuard .content .listInfo__item .listInfo__label {
   font-weight: bold;
+}
+
+.finalExercise .form label {
+  margin-bottom: 0.75rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: block;
+}
+.finalExercise .form label legend {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+.finalExercise .form label input {
+  padding: 0.25rem;
+  font-size: 1.125rem;
 }/*# sourceMappingURL=style.css.map */

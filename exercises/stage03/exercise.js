@@ -114,3 +114,46 @@ function handleData_TG(value) {
         });
     }
 }
+window.UserData = {};
+const form_FE = document.querySelector('.form');
+const input_FE = form_FE?.querySelectorAll('input');
+function isTG(obj) {
+    if (obj &&
+        typeof obj === 'object' &&
+        ('name' in obj || 'email' in obj || 'cpf' in obj)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+function validJSON(str) {
+    try {
+        JSON.parse(str);
+    }
+    catch (error) {
+        return false;
+    }
+    return true;
+}
+function loadLocalStorage_FE() {
+    const localUserData = localStorage.getItem('UserData');
+    if (localUserData && validJSON(localUserData)) {
+        const userData = JSON.parse(localUserData);
+        if (isTG(userData)) {
+            Object.entries(userData).forEach(([key, value]) => {
+                const input = document.getElementById(key);
+                if (input instanceof HTMLInputElement) {
+                    input.value = value;
+                    window.UserData[key] = value;
+                }
+            });
+        }
+    }
+}
+function handleForm({ target }) {
+    if (target instanceof HTMLInputElement)
+        window.UserData[target.id] = target.value;
+    localStorage.setItem('UserData', JSON.stringify(window.UserData));
+}
+form_FE?.addEventListener('keyup', handleForm);

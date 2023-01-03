@@ -157,3 +157,66 @@ function handleData_TG(value: unknown) {
       });
    }
 }
+
+// final exercise
+interface UserData {
+   name: string;
+   email: string;
+   cpf: string;
+}
+
+interface Window {
+   UserData: any;
+}
+
+window.UserData = {};
+
+const form_FE = document.querySelector<HTMLElement>('.form');
+const input_FE = form_FE?.querySelectorAll('input');
+
+function isTG(obj: unknown): obj is UserData {
+   if (
+      obj &&
+      typeof obj === 'object' &&
+      ('name' in obj || 'email' in obj || 'cpf' in obj)
+   ) {
+      return true;
+   } else {
+      return false;
+   }
+}
+
+function validJSON(str: string) {
+   try {
+      JSON.parse(str);
+   } catch (error) {
+      return false;
+   }
+   return true;
+}
+
+function loadLocalStorage_FE() {
+   const localUserData = localStorage.getItem('UserData');
+
+   if (localUserData && validJSON(localUserData)) {
+      const userData = JSON.parse(localUserData);
+      if (isTG(userData)) {
+         Object.entries(userData).forEach(([key, value]) => {
+            const input = document.getElementById(key);
+
+            if (input instanceof HTMLInputElement) {
+               input.value = value;
+               window.UserData[key] = value;
+            }
+         });
+      }
+   }
+}
+
+function handleForm({ target }: KeyboardEvent) {
+   if (target instanceof HTMLInputElement)
+      window.UserData[target.id] = target.value;
+   localStorage.setItem('UserData', JSON.stringify(window.UserData));
+}
+
+form_FE?.addEventListener('keyup', handleForm);

@@ -113,3 +113,24 @@ hr {
       }
    }
 }
+
+.finalExercise {
+   .form {
+      label {
+         margin-bottom: 0.75rem;
+         width: fit-content;
+         height: fit-content;
+         display: block;
+
+         legend {
+            font-size: 1.125rem;
+            font-weight: bold;
+         }
+
+         input {
+            padding: 0.25rem;
+            font-size: 1.125rem;
+         }
+      }
+   }
+}
