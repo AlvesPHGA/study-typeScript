@@ -1,0 +1,34 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+main {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+  font-size: 1.75rem;
+  font-weight: 900;
+  margin-bottom: 1.25rem;
+}
+
+hr {
+  margin-block: 1.5rem;
+}
+
+.tuple button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0.75rem 1rem;
+  font-size: 1.25rem;
+}/*# sourceMappingURL=style.css.map */
