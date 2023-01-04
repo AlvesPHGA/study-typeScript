@@ -32,3 +32,39 @@ function textElement(element: string) {
 
 const btnTuple = textElement('button');
 // console.log(btnTuple?.[1].toUpperCase());
+
+// Exercise
+
+const totalVendaTuple = document.querySelector('.totalVenda');
+
+async function fetchProductTuple() {
+   const res = await fetch('https://api.origamid.dev/json/vendas.json');
+   const data = await res.json();
+
+   productTuple(data);
+}
+
+fetchProductTuple();
+
+interface InfoProductTuple {
+   marca: string;
+   cor: string;
+}
+
+type Venda = [string, number, string, InfoProductTuple];
+
+async function productTuple(data: Venda[]) {
+   let totalVenda = 0;
+   // for (let i = 0; i < data.length; i++) {
+   //    totalVenda += data[i][1];
+   // }
+
+   const useReduce = data.reduce((ac, cur) => {
+      return ac + cur[1];
+   }, 0);
+
+   if (totalVendaTuple)
+      totalVendaTuple.innerHTML = `
+      <p class="totalVenda__text"><span>Total: </span>${useReduce}</p>
+   `;
+}
