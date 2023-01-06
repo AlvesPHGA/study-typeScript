@@ -1,3 +1,4 @@
+import formatCoinToNumber from './formatCoinToNumber.js';
 export default function normalizeTransition(trans) {
     return {
         id: trans.ID,
@@ -5,7 +6,7 @@ export default function normalizeTransition(trans) {
         date: trans.Data,
         status: trans.Status,
         email: trans.Email,
-        coin: trans['Valor (R$)'],
+        coin: formatCoinToNumber(trans['Valor (R$)']),
         value: 0,
         formPaiment: trans['Forma de Pagamento'],
         newClient: Boolean(trans['Cliente Novo']),

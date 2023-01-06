@@ -1,4 +1,4 @@
-export default function formatCoinToNumber(value) {
-    console.log(value);
+export default function formatCoinToNumber(coin) {
+    console.log(coin);
 }
 //# sourceMappingURL=formatCoinToNumber.js.map
