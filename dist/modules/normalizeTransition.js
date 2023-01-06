@@ -6,8 +6,8 @@ export default function normalizeTransition(trans) {
         date: trans.Data,
         status: trans.Status,
         email: trans.Email,
-        coin: formatCoinToNumber(trans['Valor (R$)']),
-        value: 0,
+        coin: trans['Valor (R$)'],
+        value: formatCoinToNumber(trans['Valor (R$)']),
         formPaiment: trans['Forma de Pagamento'],
         newClient: Boolean(trans['Cliente Novo']),
     };

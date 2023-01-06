@@ -1,4 +1,5 @@
 export default function formatCoinToNumber(coin) {
-    console.log(coin);
+    const number = Number(coin.replaceAll('.', '').replace(',', '.'));
+    return isNaN(number) ? null : number;
 }
 //# sourceMappingURL=formatCoinToNumber.js.map
