@@ -10,9 +10,19 @@ async function handleDataAPI() {
     templateStatistic(transitions);
     templateTableInfo(transitions);
 }
+function fillList(list, countainer) {
+    const resList = document.querySelector(countainer);
+    if (resList) {
+        Object.keys(list).forEach((key) => {
+            resList.innerHTML += `<p>${key}: ${list[key]}</p>`;
+        });
+    }
+}
 function templateStatistic(datas) {
-    const resTotal = document.querySelector('.statistic__total span');
     const transition = new Statistic(datas);
+    fillList(transition.payment, '.payment');
+    fillList(transition.status, '.status');
+    const resTotal = document.querySelector('.statistic__total span');
     if (resTotal)
         resTotal.innerText = transition.total.toLocaleString('pt-BR', {
             style: 'currency',

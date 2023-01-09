@@ -1,3 +1,4 @@
+import { CountList } from './modules/countBy.js';
 import fetchDataAPI from './modules/fetch.js';
 import normalizeTransition from './modules/normalizeTransition.js';
 import Statistic from './modules/Statistic.js';
@@ -16,11 +17,25 @@ async function handleDataAPI() {
    templateTableInfo(transitions);
 }
 
+function fillList(list: CountList, countainer: string) {
+   const resList = document.querySelector(countainer);
+
+   if (resList) {
+      Object.keys(list).forEach((key) => {
+         resList.innerHTML += `<p>${key}: ${list[key]}</p>`;
+      });
+   }
+}
+
 function templateStatistic(datas: Transition[]): void {
+   const transition = new Statistic(datas);
+
+   fillList(transition.payment, '.payment');
+   fillList(transition.status, '.status');
+
    const resTotal = document.querySelector<HTMLElement>(
       '.statistic__total span',
    );
-   const transition = new Statistic(datas);
 
    if (resTotal)
       resTotal.innerText = transition.total.toLocaleString('pt-BR', {
