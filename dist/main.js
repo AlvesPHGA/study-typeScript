@@ -1,14 +1,25 @@
 import fetchDataAPI from './modules/fetch.js';
 import normalizeTransition from './modules/normalizeTransition.js';
+import Statistic from './modules/Statistic.js';
 async function handleDataAPI() {
     const data = await fetchDataAPI('https://api.origamid.dev/json/transacoes.json');
     if (!data)
         return;
     const transitions = data.map(normalizeTransition);
     console.log(typeof transitions);
-    templateAPP(transitions);
+    templateStatistic(transitions);
+    templateTableInfo(transitions);
 }
-function templateAPP(datas) {
+function templateStatistic(datas) {
+    const resTotal = document.querySelector('.statistic__total span');
+    const transition = new Statistic(datas);
+    if (resTotal)
+        resTotal.innerText = transition.total.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+        });
+}
+function templateTableInfo(datas) {
     const tbody = document.querySelector('#tbody');
     if (!tbody)
         return;

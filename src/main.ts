@@ -1,5 +1,6 @@
 import fetchDataAPI from './modules/fetch.js';
 import normalizeTransition from './modules/normalizeTransition.js';
+import Statistic from './modules/Statistic.js';
 
 async function handleDataAPI() {
    const data = await fetchDataAPI<InfoDatas[]>(
@@ -11,10 +12,24 @@ async function handleDataAPI() {
    const transitions = data.map(normalizeTransition);
    console.log(typeof transitions);
 
-   templateAPP(transitions);
+   templateStatistic(transitions);
+   templateTableInfo(transitions);
 }
 
-function templateAPP(datas: Transition[]): void {
+function templateStatistic(datas: Transition[]): void {
+   const resTotal = document.querySelector<HTMLElement>(
+      '.statistic__total span',
+   );
+   const transition = new Statistic(datas);
+
+   if (resTotal)
+      resTotal.innerText = transition.total.toLocaleString('pt-BR', {
+         style: 'currency',
+         currency: 'BRL',
+      });
+}
+
+function templateTableInfo(datas: Transition[]): void {
    const tbody = document.querySelector('#tbody');
 
    if (!tbody) return;
