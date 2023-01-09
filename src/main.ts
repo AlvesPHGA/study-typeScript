@@ -42,6 +42,9 @@ function templateStatistic(datas: Transition[]): void {
          style: 'currency',
          currency: 'BRL',
       });
+
+   const dayBest = document.querySelector<HTMLElement>('.dayBest span');
+   if (dayBest) dayBest.innerText = transition.dayBest[0];
 }
 
 function templateTableInfo(datas: Transition[]): void {

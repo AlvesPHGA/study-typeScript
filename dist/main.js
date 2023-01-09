@@ -28,6 +28,9 @@ function templateStatistic(datas) {
             style: 'currency',
             currency: 'BRL',
         });
+    const dayBest = document.querySelector('.dayBest span');
+    if (dayBest)
+        dayBest.innerText = transition.dayBest[0];
 }
 function templateTableInfo(datas) {
     const tbody = document.querySelector('#tbody');
