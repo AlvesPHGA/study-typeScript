@@ -9,7 +9,28 @@ async function handleDataAPI() {
    if (!data) return;
 
    const transitions = data.map(normalizeTransition);
-   console.log(transitions);
+   console.log(typeof transitions);
+
+   templateAPP(transitions);
+}
+
+function templateAPP(datas: Transition[]): void {
+   const tbody = document.querySelector('#tbody');
+
+   if (!tbody) return;
+
+   datas.forEach(({ id, name, email, coin, formPaiment, status }) => {
+      tbody.innerHTML += `
+         <tr>
+            <td>${id}</td>
+            <td>${name}</td>
+            <td>${email}</td>
+            <td>R$ ${coin}</td>
+            <td>${formPaiment}</td>
+            <td>${status}</td>
+         </tr>
+      `;
+   });
 }
 
 handleDataAPI();

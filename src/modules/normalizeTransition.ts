@@ -26,7 +26,7 @@ declare global {
    interface Transition {
       id: number;
       name: string;
-      date: string;
+      date: Date;
       status: StatusPaiment;
       email: string;
       coin: string;
@@ -36,7 +36,7 @@ declare global {
    }
 }
 
-export default function normalizeTransition(trans: InfoDatas) {
+export default function normalizeTransition(trans: InfoDatas): Transition {
    return {
       id: trans.ID,
       name: trans.Nome,
